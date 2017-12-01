@@ -1,45 +1,53 @@
 @sansFontFamily: "Open Sans" , Helvetica, Arial, sans-serif;
 // Dark UI theme
 
-.border-radius-editor {
-    padding: 18px 16px 0 16px;
-    font-family: @sansFontFamily;
-    min-height: 220px;
+@dark-bc-bg-highlight: #2a3b50;
+@dark-bc-highlight: rgba(255, 255, 255, 0.06);
+@dark-bc-text: #ccc;
+@dark-bc-text-alt: #fff;
+@dark-bc-highlight-hard: rgba(255, 255, 255, 0.2);
+@dark-bc-btn-bg: #3f3f3f;
+@dark-bc-btn-border: #202020;
+@dark-bc-btn-border-focused: #2893ef;
+@dark-bc-btn-border-focused-glow: transparent;
+@dark-bc-shadow: rgba(0, 0, 0, 0.24);
+@dark-bc-shadow-small: rgba(0, 0, 0, 0.06);
+@dark-bc-shadow-medium: rgba(0, 0, 0, 0.12);
+@dark-bc-input-bg: #555;
 
-    &:focus {
-      outline: none;
-    }
+.border-radius-editor {
+    padding: 16px;
+    font-family: @sansFontFamily;
+    min-height: 240px;
 
     header {
-        margin-bottom: 5px;
-        padding-bottom: 10px;
-        font-size: 14px;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: solid 2px rgba(255,255,255,.1);
 
         label {
             display: inline-block;
             padding-right: 5px;
+            font-weight: 700;
             cursor: default;
-        }
-    }
-
-    input {
-        margin: 0;
-        vertical-align: middle;
-        box-shadow: none;
-        width: 100%;
-
-        &:focus {
-          outline: none;
         }
     }
 }
 
+
+
+.border-radius-editor:focus {
+    outline: none;
+}
+
+
 .border-radius-editor table {
+
     table-layout: fixed;
 
     tr:hover {
         td {
-            background: rgba(0,0,0,.07);
+            background: rgba(255,255,255,.08);
         }
 
         .corner-icon:after {
@@ -59,7 +67,7 @@
         vertical-align: middle;
         margin: 0;
         font-size: 13px;
-        white-space: nowrap;
+        // white-space: nowrap;
 
         &:first-child {
             border-radius: 24px 0 0 24px;
@@ -70,41 +78,38 @@
         }
     }
 
-    td.slider-container {
-        width: 99%;
-        padding: 10px 5px
+    td.slider-value {
+        min-width: 45px;
     }
 
-    td.slider-value {
-        width: 50px;
+    td.slider-container {
+        // min-width: 150px;
     }
+
 
     td .button-bar {
         position: relative;
         top: -1px;
-
-        li.selected a {
-          background-color: rgba(0,0,0,.4);
-        }
     }
 
-    .label-container {
-        width: 80px;
+    td.label-container {
+        width: 30px;
         position: relative;
     }
 
     .corner-icon {
         width: 16px;
         height: 11px;
-        border: solid 2px rgba(0,0,0,.2);
-        display: block;
-        margin: 0 5px 0 10px;
-        position: relative;
+        border: solid 2px rgba(255,255,255,.2);
+        position: absolute;
+        left: 20px;
+        top: 17px;
+        overflow: visible;
 
-        &:not(.all):after {
+        &:after {
             content: "";
             position: absolute;
-            background: black;
+            background: white;
             width: 4px;
             height: 4px;
             border-radius: 50%;
@@ -129,37 +134,13 @@
             bottom: -3px;
             right: -3px;
         }
-
-        &.all .dot {
-          position: absolute;
-          background: black;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-
-          &:nth-child(1) {
-            top: -3px;
-            left: -3px;
-          }
-          &:nth-child(2) {
-            top: -3px;
-            right: -3px;
-          }
-          &:nth-child(3) {
-            bottom: -3px;
-            left: -3px;
-          }
-          &:nth-child(4) {
-            bottom: -3px;
-            right: -3px;
-          }
-
-        }
     }
 
+
     .units-container {
+
+        // width: 120px;
         padding-left: 0;
-        width: 120px;
 
         .button-bar {
             li {
@@ -175,31 +156,6 @@
         margin: 0;
         cursor: default;
     }
-}
-
-// Dark theme for the corner Icons
-.dark .border-radius-editor .corner-icon {
-    border: solid 2px rgba(255,255,255,.2);
-
-    &:not(.all):after {
-        background: white;
-    }
-
-    &.all .dot {
-      background: white;
-    }
-}
-
-.dark .border-radius-editor table {
-  td .button-bar li.selected a {
-      background-color: #404040;
-  }
-
-  tr:hover {
-      td {
-          background: rgba(255,255,255,.08);
-      }
-  }
 
 }
 
@@ -216,25 +172,57 @@
 
 
 
+.border-radius-editor input {
+    margin: 0;
+    vertical-align: middle;
+    box-shadow: none;
+    width: 100%;
+}
+
+.border-radius-editor input:focus {
+    // background: #fff;
+    outline: none;
+    // box-shadow: 0 0 0 1px #94ceff;
+    // border: 1px solid #2893ef;
+    z-index: 911;
+}
+
+// Dark UI theme
+
+@dark-bc-bg-highlight: #2a3b50;
+@dark-bc-highlight: rgba(255, 255, 255, 0.06);
+@dark-bc-text: #ccc;
+@dark-bc-text-alt: #fff;
+@dark-bc-highlight-hard: rgba(255, 255, 255, 0.2);
+@dark-bc-btn-bg: #3f3f3f;
+@dark-bc-btn-border: #202020;
+@dark-bc-btn-border-focused: #2893ef;
+@dark-bc-btn-border-focused-glow: transparent;
+@dark-bc-shadow: rgba(0, 0, 0, 0.24);
+@dark-bc-shadow-small: rgba(0, 0, 0, 0.06);
+@dark-bc-shadow-medium: rgba(0, 0, 0, 0.12);
+@dark-bc-input-bg: #555;
+
 .border-radius-editor ul.button-bar {
     display: inline-block;
     padding: 0;
     margin: 0;
 
+
     li {
         display: inline-block;
         text-align: center;
+        margin-right: 5px;
     }
 
     a {
         text-decoration: none;
-        color: rgba(0,0,0,.4);
+        color: rgba(255,255,255,.4);
         cursor: default;
         display: block;
         padding: 5px 12px 6px 12px;
         border-radius: 14px;
         transition: all .1s ease-out;
-
 
         &:hover {
             cursor: pointer;
@@ -243,25 +231,12 @@
 
     li:not(.selected) a {
         &:hover {
-            color: rgba(0,0,0,.8);
-            background: rgba(0,0,0,.1);
-        }
-    }
-}
-
-.dark .border-radius-editor ul.button-bar {
-    a {
-        color: rgba(255,255,255,.4);
-    }
-
-    li:not(.selected) a {
-        &:hover {
             color: rgba(255,255,255,.8);
             background: rgba(0,0,0,.4);
         }
     }
-}
 
+}
 
 
 
@@ -278,10 +253,29 @@
     color: white;
 }
 
-// Styles for custom Slider
+.dark {
+    .border-radius-editor footer .box-shadow-value {
+        //border-box-shadow: @dark-bc-btn-border;
+        // box-shadow: @dark-bc-text;
+    }
 
-@track-color-dark: #444;
-@track-color: rgba(0,0,0,.2);
+    .border-radius-editor footer input {
+        // border: 1px solid @dark-bc-btn-border;
+        // box-shadow: inset 0 1px 0 @dark-bc-shadow-small;
+        // background: @dark-bc-input-bg;
+        // box-shadow: @dark-bc-text;
+    }
+
+    .border-radius-editor footer input:focus {
+        // background: @dark-bc-input-bg;
+        // box-shadow: 0 0 0 1px @dark-bc-btn-border-focused-glow;
+        // border: 1px solid @dark-bc-btn-border-focused;
+    }
+}
+
+
+
+@track-color: #444;
 @thumb-color: white;
 
 @thumb-radius: 12px;
@@ -313,6 +307,7 @@
 }
 
 .thumb() {
+  // border: @thumb-border-width solid @thumb-border-color;
   height: @thumb-height;
   width: @thumb-width;
   border-radius: @thumb-radius;
@@ -320,7 +315,7 @@
   cursor: pointer;
 }
 
-.border-radius-editor input[type=range] {
+input[type=range] {
   -webkit-appearance: none;
   margin: @thumb-height/2 0;
   width: @track-width;
@@ -334,6 +329,7 @@
     .track();
     background: @track-color;
     border-radius: @track-radius;
+    // border: @track-border-width solid @track-border-color;
   }
 
   &::-webkit-slider-thumb {
@@ -382,31 +378,5 @@
   }
   &:focus::-ms-fill-upper {
     background: lighten(@track-color, @contrast);
-  }
-}
-
-.dark .border-radius-editor input[type=range] {
-
-  &::-webkit-slider-runnable-track {
-    background: @track-color-dark;
-  }
-
-
-  &::-moz-range-track {
-    background: @track-color-dark;
-  }
-
-
-  &::-ms-fill-lower {
-    background: darken(@track-color-dark, @contrast);
-  }
-  &::-ms-fill-upper {
-    background: @track-color-dark;
-  }
-  &:focus::-ms-fill-lower {
-    background: @track-color-dark;
-  }
-  &:focus::-ms-fill-upper {
-    background: lighten(@track-color-dark, @contrast);
   }
 }
